@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.academyai</groupId>
+    <artifactId>academy-ai-api-testing</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Academy AI – API Automation Framework</name>
+    <description>
+        Comprehensive API test automation framework for AcademyAI –
+        a Flutter-based academic platform for university students.
+        Covers: Auth, AI Chat, Social Feed, Lectures Schedule, Student Chat.
+        Test Types: Functional, Performance (Gatling), AI Validation.
+    </description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Dependency Versions -->
+        <rest-assured.version>5.4.0</rest-assured.version>
+        <testng.version>7.9.0</testng.version>
+        <allure.version>2.25.0</allure.version>
+        <allure-testng.version>2.25.0</allure-testng.version>
+        <jackson.version>2.16.1</jackson.version>
+        <lombok.version>1.18.30</lombok.version>
+        <owner.version>1.0.12</owner.version>
+        <faker.version>1.0.2</faker.version>
+        <slf4j.version>2.0.9</slf4j.version>
+        <assertj.version>3.25.1</assertj.version>
+        <json-schema-validator.version>5.4.0</json-schema-validator.version>
+        <gatling.version>3.10.3</gatling.version>
+        <gatling-maven.version>4.9.2</gatling-maven.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  REST ASSURED – HTTP Client                    -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>xml-path</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${json-schema-validator.version}</version>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  TESTNG – Test Runner                          -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  ALLURE – Reporting                            -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  JACKSON – JSON Serialization                  -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  LOMBOK – Reduce Boilerplate                   -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  OWNER – Config Management                     -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>${owner.version}</version>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  JAVA FAKER – Test Data Generation             -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${faker.version}</version>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  ASSERTJ – Fluent Assertions                   -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+        </dependency>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!--  LOGGING                                       -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Maven Surefire – TestNG execution -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng-suite.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.21/aspectjweaver-1.9.21.jar"
+                    </argLine>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.21</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- Allure Maven Plugin -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <!-- Run profiles -->
+    <profiles>
+
+        <profile>
+            <id>smoke</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>src/test/resources/testng-smoke.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>regression</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>src/test/resources/testng-suite.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
+</project>

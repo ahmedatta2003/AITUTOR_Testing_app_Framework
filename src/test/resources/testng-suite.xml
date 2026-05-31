@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+  AcademyAI – Full Regression Test Suite
+  Execution Order: Auth → AI → Chat → Social → Schedule → Performance
+  Run: mvn test -P regression
+-->
+<suite name="AcademyAI – Full Regression Suite"
+       verbose="2"
+       parallel="classes"
+       thread-count="4"
+       data-provider-thread-count="3">
+
+    <listeners>
+        <listener class-name="com.academyai.listeners.AllureTestListener"/>
+    </listeners>
+
+    <parameter name="env" value="staging"/>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  Auth Tests (must run first – captures token)     -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <test name="Authentication Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="auth"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.academyai.api.auth.AuthTests"/>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  AI Chat Tests                                    -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <test name="AI Academic Assistant Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="ai"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.academyai.api.ai.AiChatTests"/>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  Student Chat Tests                               -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <test name="Student Chat Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="chat"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.academyai.api.chat.StudentChatTests"/>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  Social Feed Tests                                -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <test name="Social Feed Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="social"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.academyai.api.social.SocialFeedTests"/>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  Lecture Schedule Tests                           -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <test name="Lecture Schedule Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="schedule"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.academyai.api.schedule.LectureScheduleTests"/>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  Performance Tests                                -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <test name="Performance Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="performance"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.academyai.performance.PerformanceTests"/>
+        </classes>
+    </test>
+
+</suite>

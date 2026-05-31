@@ -1,0 +1,36 @@
+[
+  {
+    "name": "🔴 Blocker Failures",
+    "matchedStatuses": ["failed"],
+    "traceRegex": ".*AssertionError.*",
+    "messageRegex": ".*Expected.*"
+  },
+  {
+    "name": "🟡 Connection Issues",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*ConnectException.*|.*SocketTimeout.*|.*ConnectionRefused.*"
+  },
+  {
+    "name": "⏱️ Timeout Failures",
+    "matchedStatuses": ["failed", "broken"],
+    "traceRegex": ".*ReadTimeout.*|.*SocketTimeoutException.*"
+  },
+  {
+    "name": "✅ Passed Tests",
+    "matchedStatuses": ["passed"]
+  },
+  {
+    "name": "⊘ Skipped Tests",
+    "matchedStatuses": ["skipped"]
+  },
+  {
+    "name": "🔒 Auth Failures (401/403)",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*401.*|.*403.*|.*Unauthorized.*|.*Forbidden.*"
+  },
+  {
+    "name": "⚡ Performance SLA Violations",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*response time.*|.*latency.*|.*threshold.*|.*ms should be.*"
+  }
+]

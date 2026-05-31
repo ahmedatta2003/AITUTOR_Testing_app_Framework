@@ -1,8 +1,8 @@
-# AITUTOR_Testing_app_Framework
+# AcademyAI – API Automation Framework
 
 ## Overview
 
-**AITUTOR** هو تطبيق Flutter أكاديمي شامل موجه لطلبة الجامعات (أكاديمية الشروق)، يتضمن:
+**AcademyAI** هو تطبيق Flutter أكاديمي شامل موجه لطلبة الجامعات (أكاديمية الشروق)، يتضمن:
 - 🤖 **AI Academic Assistant** – شات ذكاء اصطناعي للمساعدة الأكاديمية
 - 💬 **Student Chat** – تواصل مباشر وجماعي بين الطلبة
 - 📅 **Lecture Schedule** – جدول المحاضرات الأسبوعي

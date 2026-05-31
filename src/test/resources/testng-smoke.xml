@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+  AcademyAI – Smoke Test Suite
+  Fast sanity check: only @groups=smoke tests
+  Run: mvn test -P smoke
+-->
+<suite name="AcademyAI – Smoke Suite"
+       verbose="1"
+       parallel="none">
+
+    <listeners>
+        <listener class-name="com.academyai.listeners.AllureTestListener"/>
+    </listeners>
+
+    <test name="Smoke – All Critical Endpoints">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.academyai.api.auth.AuthTests"/>
+            <class name="com.academyai.api.ai.AiChatTests"/>
+            <class name="com.academyai.api.chat.StudentChatTests"/>
+            <class name="com.academyai.api.social.SocialFeedTests"/>
+            <class name="com.academyai.api.schedule.LectureScheduleTests"/>
+            <class name="com.academyai.performance.PerformanceTests"/>
+        </classes>
+    </test>
+
+</suite>
